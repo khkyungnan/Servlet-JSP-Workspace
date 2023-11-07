@@ -21,7 +21,8 @@ public class RegisterServlet extends HttpServlet {
 		String jdbcUsername = "khmember";
 		String jdbcPassword = "kh1234";
 		try {
-			Class.forName("oracle.jdbc.OracleDriver");
+			
+			 Class.forName("oracle.jdbc.OracleDriver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -29,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-		
+            
 			//넣고자하는 DB 값 설정
 			/*
 			 * CREATE TABLE MemberInfo (
@@ -73,7 +74,7 @@ public class RegisterServlet extends HttpServlet {
 			
 		} catch (SQLException e) {
 			// 실패할 경우 이동할 페이지 설정
-			response.sendRedirect("register_error.jsp");
+			response.sendRedirect("register_errorr.jsp");
 			e.printStackTrace();
 		}
 	}

@@ -1,0 +1,10 @@
+Apache Tomcat Servlet JSP 등 내용 작성
+Apache : https  
+		웹 서버 (html 과 같은 정적인 데이터를 처리하는 서버)
+		JSP 코드가 포함되어 있는
+		웹 페이지를 만들어주는 서버
+		
+Tomcat : 웹 서버 (동적)
+		(자바 서블릿을 실행시키고 DB로 연결되어 데이터를 주고받거나
+			HTML과 같은 JSP 파일로 데이터를 받고 전달해주는 역할을 함)
+			

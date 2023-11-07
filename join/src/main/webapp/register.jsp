@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>회원가입창</title>
  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
