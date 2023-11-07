@@ -1,0 +1,71 @@
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/RegisterServlet")
+public class RegisterServlet extends HttpServlet {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// JDBC 불러오기
+		String jdbcURL = "jdbc:oracle:thin@localhost:1521:xe";
+		String jdbcUsername = "khmember";
+		String jdbcPassword = "kh1234";
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+		
+			//넣고자하는 DB 값 설정
+			/*
+			 * CREATE TABLE MemberInfo (
+				    MNO INT PRIMARY KEY,
+				    MName VARCHAR(50),
+				    MEmail VARCHAR(100),
+				    MBirth  DATE
+			);*/
+			int mno = Integer.parseInt(request.getParameter("mno"));
+			String mname = request.getParameter("mname");
+			String memail = request.getParameter("memail");
+			String mbirth = request.getParameter("mbirth");
+			
+			//회원가입 insert 
+			String sql = "INSERT INTO MemeberInfo "
+						+ "(MNO, MName, MEmail, MBirth) VALUES (?, ?, ?, ?)";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, mno);
+			preparedStatement.setString(2, mname);
+			preparedStatement.setString(3, memail);
+			preparedStatement.setDate(4, Date.valueOf(mbirth));
+			
+			preparedStatement.executeUpdate();
+			
+			//가입 성공할 경우 회원 정보를 세션에 저장
+			request.getSession().setAttribute("mno", mno);
+		
+			
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
