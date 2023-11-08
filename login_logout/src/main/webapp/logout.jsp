@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+<%
+	// 세션을 없애서 로그아웃 처리
+	session.invalidate();
+	response.sendRedirect("home.jsp");
+%>
