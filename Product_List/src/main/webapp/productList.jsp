@@ -28,15 +28,14 @@
 		%>
 		<tr>
 		<td> <%= p.getProductId() %>  </td>
+		<td> <%= p.getProductName() %></td>
 		<td> <%= p.getCategory() %></td>
 		<td> <%= p.getPrice() %></td>
 		<td> <%= p.getStockQuantity() %></td>
+		</tr>
 		<%		
 			}
 		%>
-		
-		
-		
 	</table>
 </body>
 </html>
