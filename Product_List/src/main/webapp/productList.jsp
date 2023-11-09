@@ -27,7 +27,10 @@
 			for(Product p : products) {
 		%>
 		<tr>
-		<td> <%= p.getProductId() %>  </td>
+		<td> <a href="productDetail.jsp?productId=<%=p.getProductId()%>">
+				<%= p.getProductId() %>  
+			</a>
+		</td>
 		<td> <%= p.getProductName() %></td>
 		<td> <%= p.getCategory() %></td>
 		<td> <%= p.getPrice() %></td>

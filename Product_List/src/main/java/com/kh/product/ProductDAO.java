@@ -26,7 +26,7 @@ public class ProductDAO {
 		List<Product> products = new ArrayList<>();
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-			String sql = "SELECT * FROM droducts";
+			String sql = "SELECT * FROM products";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet resultSet = ps.executeQuery();
 			
@@ -46,6 +46,13 @@ public class ProductDAO {
 		}
 		
 		return products;
+	}
+	
+	public Product getProductId(int productId) {
+		Product product = null;
+		// select 해서 1만 볼 수 있는 쿼리 작성하고 
+		// new product 이용해서 값 가지고오기.
+		return product;
 	}
 }
 
