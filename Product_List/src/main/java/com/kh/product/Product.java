@@ -1,13 +1,6 @@
 package com.kh.product;
 
 public class Product {
-/*
- * PRODUCT_ID
-PRODUCT_NAME
-CATEGORY
-PRICE
-STOCK_QUANTITY
- * */
 	private int productId;
 	private String productName;
 	private String category;
