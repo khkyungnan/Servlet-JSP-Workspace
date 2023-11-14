@@ -55,7 +55,7 @@
         if (productIdParam != null) {
             int productId = Integer.parseInt(productIdParam);
             ProductDAO productDAO = new ProductDAO();
-            Product product = productDAO.getProductId(productId);
+            Product product = productDAO.getProductById(productId);
             
     %>
 
@@ -64,9 +64,7 @@
     <p>카테고리: <%= product.getCategory() %></p>
     <p>가격: <%= product.getPrice() %></p>
     <p>재고 수량: <%= product.getStockQuantity() %></p>
-
-    <!-- You can display more details here as needed -->
-
+    <a href="update_product.jsp?productId=<%= product.getProductId() %>">제품 수정하기</a>
     <%
         } else {
     %>

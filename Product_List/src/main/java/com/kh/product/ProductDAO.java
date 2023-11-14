@@ -48,12 +48,48 @@ public class ProductDAO {
 		return products;
 	}
 	
-	public Product getProductId(int productId) {
-		Product product = null;
-		// select 해서 1만 볼 수 있는 쿼리 작성하고 
-		// new product 이용해서 값 가지고오기.
-		return product;
-	}
+    public Product getProductById(int productId) {
+        Product product = null;
+        String SELECT_PRODUCT_BY_ID = "SELECT * FROM products WHERE product_id = ?";
+        
+        try (Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PRODUCT_BY_ID)) {
+            preparedStatement.setInt(1, productId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            if (resultSet.next()) {
+                String productName = resultSet.getString("product_name");
+                String category = resultSet.getString("category");
+                double price = resultSet.getDouble("price");
+                int stockQuantity = resultSet.getInt("stock_quantity");
+
+                product = new Product(productId, productName, category, price, stockQuantity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return product;
+    }
+	
+    //업데이트를 하기 위한 쿼리문 추가
+    public void updateProduct(Product product) {
+        String UPDATE_PRODUCT = "UPDATE products SET product_name=?, category=?, price=?, stock_quantity=? WHERE product_id=?";
+    	try {
+			Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
+			PreparedStatement ps = conn.prepareStatement(UPDATE_PRODUCT);
+			ps.setString(1, product.getProductName());
+			ps.setString(2, product.getCategory());
+			ps.setDouble(3, product.getPrice());
+			ps.setInt(4, product.getStockQuantity());
+			ps.setInt(5, product.getProductId());
+			
+			ps.executeUpdate();
+    	} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
 }
 
 
