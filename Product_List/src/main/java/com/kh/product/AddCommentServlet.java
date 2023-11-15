@@ -21,6 +21,9 @@ public class AddCommentServlet extends HttpServlet {
 		Timestamp commentDate = new Timestamp(System.currentTimeMillis());
 		
 		//ProductComment 객체 생성
+												// 0의 경우 무결성 제약 걸릴 것, 시퀀스 이용해서 NEXTVAL 들어갈 수 있어야함
+												// productId 경우 기본 값으로 지정해줘야함 input이 아니라 p나 다른 값으로 넣어준 후
+												//hidden 이용해서 숨기기
 		ProductComment comment= new ProductComment(0, productId, commenterName, commentText, commentDate);
 		
 
