@@ -1,0 +1,66 @@
+home.jsp 설명 주석
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>홈페이지</title>
+<script>
+	function displayLoginFail(){
+		alert("로그인에 실패하였습니다.");// 팝업으로 표시할 오류 메세지
+	}
+</script>
+</head>
+<body>
+<h1>홈페이지에 오신걸 환영합니다.</h1>
+<!-- 만약에 로그인인 상태일경우 로그인 버튼을 숨기고 싶고
+	로그아웃 버튼이 보이게 하고 싶을 경우
+ -->
+ <%
+ 	//만약에 mno 값이 존재할 경우 빈(null)값이 아닐경우
+ 	if (session.getAttribute("mno") != null){
+ %>
+ 	<a href="logout.jsp">로그아웃</a>
+ <%
+ 	} else{
+ %>
+	<a href="login.jsp">로그인</a>
+ <%
+	}
+ %>
+ 
+ <%
+   //만약에 로그인이 실패했을 때 사용자한테 로그인 실패를 알리기 위해
+   //로그인 실패 함수를 호출합니다.
+   //1. 로그인 실패 여부를 파악하고
+   //2. 함수를 호출
+   // request.getAttribute("loginError")는 어떤 값도 지정되어 있지 않기 때문에
+   // 앞에(String) 값을 지정해서 변환해줘야함.
+   String loginError = (String) request.getAttribute("loginError");
+ 	//loginError != null 값을 설정해놓은 이유는
+ 	//LoginServlet에서 logintError 값을  "true" 로 설정해 줬기 때문에
+ 	// null값이 될 수 없음
+ 	if(loginError != null) {
+ %>
+ <script>
+ 	displayLoginFail();
+ </script>
+ 
+ 
+	<!-- % %자바코드로 변수정의, 반복문, 조건문 메서드 호출 등 
+									행위를 표현하는 공간	-->
+	<!-- %= %는 어떤 값에 대한 결과를 출력하는 공간    -->
+	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+

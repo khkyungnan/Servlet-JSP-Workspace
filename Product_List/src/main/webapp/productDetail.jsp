@@ -61,7 +61,7 @@
     <!--  ¥Ò±€ √ﬂ∞° ∆˚ ¿€º∫! -->
     <form action="AddCommentServlet" method="post">
     
-    	<input type=text name="productID" value="<%= product != null ?product.getProductId() :"" %>"><br>
+    	<input type="hidden" name="productID" value="<%= product != null ?product.getProductId() :"" %>"><br>
     	
     	<label for = "commentName"> ¿Ã∏ß : </label>
     	<input type="text" name="commentName" required>

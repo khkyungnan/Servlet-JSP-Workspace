@@ -3,6 +3,8 @@ C:\Users\user1\servlet-jsp-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core
 \image_JS_JQUERY\src\main\java
 C:\Users\user1\servlet-jsp-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3882650937.index
 \board\src\main\java
+C:\Users\user1\servlet-jsp-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3671098200.index
+\login_logout2_arrive\src\main\java
 C:\Users\user1\servlet-jsp-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3167889792.index
 \login_logout\src\main\java
 C:\Users\user1\servlet-jsp-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1051821724.index
